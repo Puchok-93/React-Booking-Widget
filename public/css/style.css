@@ -1,0 +1,419 @@
+
+@font-face {
+    font-family: HarmoniaSans;
+    font-display: swap;
+    src: url("../fonts/HarmoniaSansProCyr-Regular.woff2") format("woff2"),
+        url("../fonts/HarmoniaSansProCyr-Regular.woff") format("woff");
+    font-weight: 400;
+    font-style: normal
+}
+
+@font-face {
+    font-family: HarmoniaSans;
+    font-display: swap;
+    src: url("../fonts/HarmoniaSansProCyr-SemiBold.woff2") format("woff2"),
+        url("../fonts/HarmoniaSansProCyr-SemiBold.woff") format("woff");
+    font-weight: 600;
+    font-style: normal
+}
+
+@font-face {
+    font-family: HarmoniaSans;
+    font-display: swap;
+    src: url("../fonts/HarmoniaSansProCyr-Bold.woff2") format("woff2"),
+        url("../fonts/HarmoniaSansProCyr-Bold.woff") format("woff");
+    font-weight: 700;
+    font-style: normal
+}
+
+body {
+    background-color: #ffffff;
+}
+
+:root {
+    --font-harmonia: 'HarmoniaSans', Helvetica, Arial, sans-serif;
+}
+
+.visually-hidden {
+    font-size: 0;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    clip: rect(0,0,0,0)
+}
+
+.wrapper {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px 300px;
+}
+
+.booking-form {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    background-color: #fff;
+    border: 2px solid #c4c4c4;
+    border-radius: 20px;
+    padding: 60px;
+}
+
+.booking-title {
+    font: 600 24px/1 var(--font-harmonia);
+    color: #222222;
+    text-box-trim: trim-both;
+    text-box-edge: cap alphabetic;
+    margin: 0;
+}
+
+.booking-title span {
+    color: #ed4261;
+    padding: 0 0 0 5px;
+}
+
+.booking-form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.booking-form-field input {
+    font: 400 16px / 1 var(--font-harmonia);
+    height: auto;
+    padding: 15px 16px;
+    border: 2px solid #c4c4c4;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.booking-form-field label {
+    font: 400 16px / 1 var(--font-harmonia);
+    text-transform: none;
+    letter-spacing: 0;
+    color: #222;
+    padding: 0 0 0 2px;
+    margin: 0;
+}
+
+.booking-form-field label span {
+    color: #ed4261;
+}
+
+.booking-form-field input::placeholder {
+    font: 400 16px/1 var(--font-harmonia);
+    color: #c4c4c4
+}
+
+.booking-form__submit-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 56px;
+    font: 600 18px / 1 var(--font-harmonia);
+    color: #fff;
+    background: #00afff;
+    border: 2px solid #00afff;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0;
+}
+
+.booking-form__submit-btn:disabled {
+    background-color: #C4C4C4;
+    border-color: #C4C4C4;
+    color:rgba(34, 34, 34, 0.5);
+}
+
+/* Stores */
+
+.booking-stores {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.booking-stores__title span {
+    color: #ed4261;
+}
+
+.booking-stores-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.booking-store__label {
+    position: relative;
+    display: block;
+    font: 400 18px / 1 var(--font-harmonia);
+    text-box-trim: trim-both;
+    text-box-edge: cap alphabetic;
+    border: 2px solid #c4c4c4;
+    padding: 20px 20px 20px 55px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.booking-store__label::before {
+    position: absolute;
+    content: '';
+    width: 20px;
+    height: 20px;
+    border: 2px solid #c4c4c4;
+    border-radius: 50%;
+    top: 50%;
+    left: 20px;
+    transform: translate(0, -50%);
+}
+
+.booking-store__input:checked + .booking-store__label::before {
+    border-color: #00AFFF;
+}
+
+.booking-store__input:checked + .booking-store__label {
+    border-color: #00AFFF;
+}
+
+.booking-store__input:checked + .booking-store__label::after{
+    position: absolute;
+    content: '';
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    top: 50%;
+    left: 27px;
+    background-color: #00AFFF;
+    transform: translate(0, -50%);
+}
+
+.booking-layout {
+    display: flex;
+    gap: 20px;
+}
+
+.booking-layout--grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    flex-direction: column;
+}
+
+/* Dates */
+.booking-calendar {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.rdp-months {
+    border: 2px solid #c4c4c4;
+    padding: 20px 20px 20px;
+    border-radius: 10px;
+}
+
+.rdp-nav {
+    top: 16px !important;
+    right: 20px !important;
+}
+
+.rdp-chevron {
+    fill: #222222 !important;
+}
+
+.rdp-button_next:hover .rdp-chevron,
+.rdp-button_prev:hover .rdp-chevron {
+    fill: #00AFFF !important;
+}
+
+.rdp-caption_label {
+    font: 600 18px / 1 var(--font-harmonia);
+    text-transform: capitalize;
+}
+
+.rdp-weekday {
+    font: 400 14px / 1 var(--font-harmonia);
+    text-transform: capitalize !important;
+    color: #c4c4c4;
+}
+
+.rdp-day_button {
+    border-radius: 10px !important;
+    text-box-trim: trim-both;
+    text-box-edge: cap alphabetic;
+    font: 400 16px / 1 var(--font-harmonia) !important;
+    padding: 5px 0 0 !important;
+}
+
+.rdp-selected .rdp-day_button {
+    border-color: #00AFFF !important;
+}
+
+.rdp-day.rdp-today .rdp-day_button {
+    color: #00AFFF !important;
+    font: 600 16px / 1 var(--font-harmonia) !important;
+}
+
+
+
+/* Booking Slots */
+.booking-slots {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.booking-slots-list {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.booking-slots__slot {
+    width: 58px;
+    height: 58px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font: 600 16px/1 var(--font-harmonia);
+    color: #222222;
+    border: 2px solid #C4C4C4;
+    border-radius: 10px;
+    text-box-trim: trim-both;
+    text-box-edge: cap alphabetic;
+    background-color: #ffffff;
+    cursor: pointer;
+}
+
+.booking-slots__slot.selected {
+    border-color: #00AFFF;
+}
+
+.booking-slots__slot.disabled {
+    pointer-events: none;
+    color: #888989;
+    background-color: #C4C4C4;
+}
+
+.rdp-day_button:disabled {
+    cursor: revert;
+    opacity: 0.3;
+}
+
+/*  */
+
+.agreement {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    height: 24px;
+    position: relative
+}
+
+.agreement-input-block {
+    display: flex;
+    width: 24px;
+    height: 24px
+}
+
+.agreement-input-block input:checked+label::before {
+    background: url(img/icon-check.svg) center / 16px 12px no-repeat;
+    background-color: #222222;
+}
+
+.agreement-input-block label {
+    width: 24px;
+    height: 24px;
+    cursor: pointer
+}
+
+.agreement-input-block label::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: block;
+    width: 24px;
+    height: 24px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    border: 1px solid #161616;
+    border-radius: 5px
+}
+
+.agreement a {
+    font: 400 16px/22px var(--font-harmonia);
+    color: #161616;
+    margin: 0
+}
+
+.agreement-input-block small {
+    font: 400 16px/22px var(--font-harmonia);
+    color: #161616;
+    margin: 0 0 0 auto
+}
+
+.booking-message {
+    font: 400 16px/22px var(--font-harmonia);
+    border-radius: 6px;
+    padding: 10px;
+    margin: 0 0 10px;
+}
+
+.booking-message--error {
+    color: #b22222;
+    background-color: #ffeded;
+}
+
+.booking-message--success {
+    color: #334d18;
+    background-color: #b3fabeff;
+}
+
+@media(max-width: 1024px) {
+    .rdp-day_button {
+        padding: 2px 0 0 !important;
+    }
+
+    .booking-slots__slot {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+@media(max-width: 767px) {
+    .booking-form {
+        padding: 20px;
+    }
+
+    .booking-layout--grid {
+        grid-template-columns: 1fr;
+    }
+
+    .booking-stores-list {
+        grid-template-columns: 1fr;
+    }
+
+    .booking-layout {
+        flex-direction: column;
+    }
+
+    .booking-slots__slot {
+        width: 55px;
+        height: 55px;
+    }
+
+    .rdp-months {
+        border: none;
+        padding: 0;
+        border-radius: 0;
+    }
+
+    .rdp-nav {
+        top: -6px !important;
+        right: 0 !important;
+    }
+}

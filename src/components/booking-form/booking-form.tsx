@@ -25,11 +25,9 @@ function BookingForm() {
 
     async function handleStoreSelect(store: TStore) {
         try {
-            setSelectedStore(store); // Выбираем магазин
+            setSelectedStore(store);
             setSelectedSlot(null);
 
-            /* если дата уже выбрана — перезапрашиваем busy slots
-            */
             if (selectedDate) {
                 const slotsResponse =
                     await getAvailabilitySlots(
@@ -38,24 +36,18 @@ function BookingForm() {
                         date: format(selectedDate,"yyyy-MM-dd'T'00:00:00")
                     })
 
-                /*
-                    no data
-                */
                 if (slotsResponse.result === 'no data') {
                     setBusySlots([])
-                    return
+                    return;
                 }
 
-                /* обновляем busy slots */
-                setBusySlots(
-                    slotsResponse.result
-                )
+                setBusySlots(slotsResponse.result);
 
-                return
+                return;
             }
 
-            const toDay = new Date(); // Сегодня
-            const dateAfter30Days = addDays(toDay, 30); // Сегодня + 30дней
+            const toDay = new Date();
+            const dateAfter30Days = addDays(toDay, 30);
             const response = await getAvailabilityDate(
                 {
                     shop: store.store_id,
@@ -67,7 +59,7 @@ function BookingForm() {
 
 
         } catch(error) {
-            console.log(error)
+            console.log(error);
         }
     };
 
@@ -92,8 +84,6 @@ function BookingForm() {
 
                 return
             }
-
-            console.log('SLOTS:', response);
             setBusySlots(response.result)
         } catch {
             console.log('error')
